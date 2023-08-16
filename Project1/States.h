@@ -23,9 +23,9 @@ public:
 	
 protected: // Private but inherited.
 	std::vector<std::pair<std::string, GameObject*>> m_objects;
+	Uint32 startTime, elapsedTime;
 	State() = default;
 	bool collision_detected = false;
-	Uint32 startTime, elapsedTime;
 };
 
 class TitleState : public State

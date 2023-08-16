@@ -32,6 +32,8 @@ void State::Update()
 				//AddChild("Obstacles", new ObstacleRow());
 				//m_objects[1].second.
 
+				// Check if 5 seconds have passed
+
 			}
 			//m_state = STATE_DEATH;
 			//ObstacleRow Obstable = i;
@@ -40,17 +42,17 @@ void State::Update()
 		else
 			i.second->Update();
 		if (STMA::StateChanging()) return;
-
 	}
-	for (auto const& i : m_objects) {
-		if (i.first == "Timer") {
-			RemoveChild("Timer");
-			elapsedTime = SDL_GetTicks() - startTime;
-			std::string timeText = "Time " + std::to_string(elapsedTime / 1000);
-			AddChild("Timer", new Label("ARCADECLASSIC", 2, -10, timeText.c_str()));
-			break;
-		}
-	}
+	//for (auto const& i : m_objects) {
+	//	if (i.first == "Timer") {
+	//		RemoveChild("Timer");
+	//		elapsedTime = SDL_GetTicks() - startTime;
+	//		std::string timeText = "Time " + std::to_string(elapsedTime / 1000);
+	//		//i.second.
+	//		AddChild("Timer", new Label("ARCADECLASSIC", 2, -10, timeText.c_str()));
+	//		break;
+	//	}
+	//}
 
 }
 void State::Render()
@@ -235,8 +237,8 @@ void GameState::Enter()
 	SOMA::PlayMusic("Biscuit", -1, 2000);
 	startTime = SDL_GetTicks(); // Get the current time in milliseconds
 	elapsedTime = SDL_GetTicks() - startTime;
-	std::string timeText = "Time: " + std::to_string(elapsedTime / 1000) + " seconds";
-	AddChild("Timer", new Label("ARCADECLASSIC", 360, 200, timeText.c_str()));
+	std::string timeText = "Time " + std::to_string(elapsedTime / 1000);
+	AddChild("Timer", new Label("ARCADECLASSIC", 2, -10, timeText.c_str()));
 
 }
 void GameState::Update()

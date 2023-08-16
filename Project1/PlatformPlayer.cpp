@@ -41,7 +41,7 @@ void PlatformPlayer::Update()
 		else if (EVMA::KeyPressed(SDL_SCANCODE_C))
 		{
 			m_crouching = true; // Start crouching
-			SetAnimation(STATE_CROUCHING, 8, 0, 3, m_src.h * 25); // Set crouching animation
+			SetAnimation(STATE_CROUCHING, 8, 0, 3, m_src.h * 15); // Set crouching animation
 		}
 
 		break;
