@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{3806e88e-c7ef-4fc1-9228-b9142af54667}</ProjectGuid>
+    <RootNamespace>Project1</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)SDL\SDL2_ttf\include;$(SolutionDir)SDL\SDL2_mixer\include;$(SolutionDir)SDL\SDL2_image\include;$(SolutionDir)SDL\SDL2\include;C:\Users\Wakeel Furqan Ahmed\repos\Project1\SDL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)SDL\SDL2_image\lib\x64;$(SolutionDir)SDL\SDL2_mixer\lib\x64;$(SolutionDir)SDL\SDL2_ttf\lib\x64;$(SolutionDir)SDL\SDL2\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Background.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Button3.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\CollisionManager.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\DebugManager.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Engine.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\EventManager.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\FontManager.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\GameObject.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\MathManager.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Obstacle.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\ObstacleRow.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\PlatformPlayer.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Primitives.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\RenderManager.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\ScrollingBackground.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\SoundManager.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\StateManager.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\States.h" />
+    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\TextureManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Background.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Button3.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\CollisionManager.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\DebugManager.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Engine.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\EventManager.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\FontManager.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\GameObject.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Main.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\MathManager.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Obstacle.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\ObstacleRow.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\PlatformPlayer.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Primitives.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\RenderManager.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\ScrollingBackground.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\SoundManager.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\StateManager.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\States.cpp" />
+    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\TextureManager.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
