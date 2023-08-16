@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <ctime>
 
-
+#include<iostream> //remove later
 
 ObstacleRow::ObstacleRow() : m_gapCtr(0), m_gapMax(3)
 {
@@ -14,9 +14,24 @@ ObstacleRow::ObstacleRow() : m_gapCtr(0), m_gapMax(3)
 	}
 }
 
-bool ObstacleRow::Update(SDL_FRect &Player)
+bool ObstacleRow::Update(SDL_FRect& Player)
 {
 	srand(time(NULL));
+	//m_obstacles[0];
+	for (const auto obstacle : m_obstacles)
+	{
+
+		if (Player.x < obstacle->GetPos().x + 64 &&
+			Player.x + Player.w > obstacle->GetPos().x &&
+			Player.y < obstacle->GetPos().y + 64 &&
+			Player.y + Player.h > obstacle->GetPos().y)
+		{
+			//return 1;
+			std::cout << "Death!\n";
+			// Collision detected between player and obstacle
+			// Handle collision logic here
+		}
+	}
 	// Check if first obstacle goes off-screen
 	if (m_obstacles[0]->GetPos().x <= -128.0f) // -128.0f is hardcoded
 	{
@@ -71,16 +86,16 @@ void ObstacleRow::Update()
 			int randomObstacle = rand() % 3;
 			if (randomObstacle == 0) {
 
-			m_obstacles.push_back(new Obstacle({ 1020.0f, 550.0f, 64.0f, 64.0f }, true, { 0, 0, 320, 170 }, "missles"));
+				m_obstacles.push_back(new Obstacle({ 1020.0f, 550.0f, 64.0f, 64.0f }, true, { 0, 0, 320, 170 }, "missles"));
 			}
 
 			else if (randomObstacle == 1) {
-			m_obstacles.push_back(new Obstacle({ 1020.0f, 600.0f, 64.0f, 64.0f }, true, { 0, 0, 1184, 1184 }, "blade"));
+				m_obstacles.push_back(new Obstacle({ 1020.0f, 600.0f, 64.0f, 64.0f }, true, { 0, 0, 1184, 1184 }, "blade"));
 
 			}
 
 			else {
-			m_obstacles.push_back(new Obstacle({ 1020.0f, 500.0f, 120.0f, 40.0f }, true, { 0, 0, 650, 240 }, "bomb"));
+				m_obstacles.push_back(new Obstacle({ 1020.0f, 500.0f, 120.0f, 40.0f }, true, { 0, 0, 650, 240 }, "bomb"));
 
 			}
 

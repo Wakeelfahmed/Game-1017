@@ -26,7 +26,7 @@ void State::Update()
 		
 				i.second->Update(*(m_objects[2].second->GetDst()));
 				//ObstacleRow Obstable = i;
-			cout << "Death";
+			//cout << "Death";
 
 		}
 		else
