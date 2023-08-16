@@ -18,9 +18,13 @@ bool ObstacleRow::Update(SDL_FRect& Player)
 {
 	srand(time(NULL));
 	//m_obstacles[0];
+	int playerTextureWidth, playerTextureHeight;
+	SDL_Texture* Player_Temp = TEMA::GetTexture("player");
+	SDL_QueryTexture(Player_Temp, nullptr, nullptr, &playerTextureWidth, &playerTextureHeight);
+	//std::cout << playerTextureHeight << std::endl;
 	for (const auto obstacle : m_obstacles)
 	{
-
+		//Player_Temp
 		if (Player.x < obstacle->GetPos().x + 64 &&
 			Player.x + Player.w > obstacle->GetPos().x &&
 			Player.y < obstacle->GetPos().y + 64 &&
@@ -45,20 +49,16 @@ bool ObstacleRow::Update(SDL_FRect& Player)
 		{
 			int randomObstacle = rand() % 3;
 			if (randomObstacle == 0) {
-
 				m_obstacles.push_back(new Obstacle({ 1020.0f, 550.0f, 64.0f, 64.0f }, true, { 0, 0, 320, 170 }, "missles"));
 			}
 
 			else if (randomObstacle == 1) {
 				m_obstacles.push_back(new Obstacle({ 1020.0f, 600.0f, 64.0f, 64.0f }, true, { 0, 0, 1184, 1184 }, "blade"));
-
 			}
 
 			else {
 				m_obstacles.push_back(new Obstacle({ 1020.0f, 500.0f, 120.0f, 40.0f }, true, { 0, 0, 650, 240 }, "bomb"));
-
 			}
-
 		}
 		else
 			m_obstacles.push_back(new Obstacle({ 1024.0f, 384.0f, 128.0f, 128.0f }));

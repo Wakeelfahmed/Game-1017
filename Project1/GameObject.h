@@ -1,7 +1,7 @@
 #ifndef __GAMEOBJECT_H__
 #define __GAMEOBJECT_H__
 #include <SDL_rect.h>
-enum AnimState { STATE_IDLING, STATE_RUNNING, STATE_JUMPING, STATE_CROUCHING };
+enum AnimState { STATE_IDLING, STATE_RUNNING, STATE_JUMPING, STATE_CROUCHING, STATE_DEATH };
 
 class GameObject
 {
@@ -29,7 +29,7 @@ public:
 	SDL_Rect* GetSrc();
 	virtual void Update() = 0;
 	virtual void Render() = 0;
-	bool Update(SDL_FRect& object1){ return 0; }
+	bool Update(SDL_FRect& object1){ return 0; } 
 
 protected:
 	SDL_Rect m_src;

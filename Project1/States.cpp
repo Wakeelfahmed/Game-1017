@@ -224,10 +224,6 @@ void GameState::Enter()
 	SOMA::PlayMusic("Biscuit", -1, 2000);
 
 	AddChild("player", new PlatformPlayer({ 0,0,32,32 }, { 128,576,64,64 }));
-
-
-
-
 }
 
 void GameState::Update()
@@ -248,9 +244,6 @@ void GameState::Update()
 	State::Update();
 
 }
-
-
-
 
 void GameState::Render()
 {
