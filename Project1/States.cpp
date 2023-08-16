@@ -24,6 +24,7 @@ void State::Update()
 		if (i.first == "Obstacles") {
 
 			if (i.second->Update(*(m_objects[1].second->GetDst()))) {
+
 				m_objects[1].second->SetEnabled(false);		//Set Player to false
 				cout << "Death";
 				//m_objects[1].second->GetDst()->x = 128;
@@ -32,27 +33,24 @@ void State::Update()
 				//AddChild("Obstacles", new ObstacleRow());
 				//m_objects[1].second.
 
-				// Check if 5 seconds have passed
-
 			}
-			//m_state = STATE_DEATH;
-			//ObstacleRow Obstable = i;
-		// 
+
+			// 
 		}
 		else
 			i.second->Update();
 		if (STMA::StateChanging()) return;
 	}
-	//for (auto const& i : m_objects) {
-	//	if (i.first == "Timer") {
-	//		RemoveChild("Timer");
-	//		elapsedTime = SDL_GetTicks() - startTime;
-	//		std::string timeText = "Time " + std::to_string(elapsedTime / 1000);
-	//		//i.second.
-	//		AddChild("Timer", new Label("ARCADECLASSIC", 2, -10, timeText.c_str()));
-	//		break;
-	//	}
-	//}
+	for (auto const& i : m_objects) {
+		if (i.first == "Timer") {
+			RemoveChild("Timer");
+			elapsedTime = SDL_GetTicks() - startTime;
+			std::string timeText = "Time " + std::to_string(elapsedTime / 1000);
+			//i.second.
+			AddChild("Timer", new Label("ARCADECLASSIC", 2, -10, timeText.c_str()));
+			break;
+		}
+	}
 
 }
 void State::Render()
@@ -145,6 +143,8 @@ void TitleState::Enter()
 	TEMA::Load("Assets/Image/buttons.png", "PlayButton");
 	AddChild("play", new PlayButton({ 0, 105, 200, 105 }, { 412.0f, 470.0f, 200.0f, 50.0f }, "PlayButton"));
 	AddChild("PlayButtonText", new Label("ka1", 462.0f, 480.0f, "PLAY", { 0, 0, 0, 255 }));
+	AddChild("Exit", new ExitButton({ 0, 105, 200, 105 }, { 412.0f, 540.0f, 200.0f, 50.0f }, "PlayButton"));
+	AddChild("ExitButtonText", new Label("ka1", 462.0f, 550, "Exit", { 0, 0, 0, 255 }));
 
 	SOMA::AllocateChannels(16);
 	SOMA::Load("Assets/Audio/menumusic.mp3", "menumusic", SOUND_MUSIC);
@@ -243,16 +243,16 @@ void GameState::Enter()
 }
 void GameState::Update()
 {
-	if (collision_detected == 1 && m_objects[1].second->GetEnabled() == false) {
-		m_objects[1].second->SetEnabled(true);
-		collision_detected = 0;
-		//m_objects[2].second.
-	}
+	//if (collision_detected == 1 && m_objects[1].second->GetEnabled() == false) {
+	//	m_objects[1].second->SetEnabled(true);
+	//	collision_detected = 0;
+	//	//m_objects[2].second.
+	//}
 
 	if (m_objects[1].second->GetEnabled() == false)
 	{
 		STMA::PushState(new LoseState()); // Change to new LoseState
-		collision_detected = 1;
+		//collision_detected = 1;
 	}
 	else if (EVMA::KeyPressed(SDL_SCANCODE_X))
 	{
@@ -296,6 +296,7 @@ void GameState::Resume()
 	cout << "Resuming GameState..." << endl;
 	m_objects[1].second->GetDst()->x = 128;
 	m_objects[1].second->GetDst()->y = 576;
+	m_objects[1].second->SetEnabled(true);
 	RemoveChild("Obstacles");
 	AddChild("Obstacles", new ObstacleRow());
 	startTime = SDL_GetTicks(); // Get the current time in milliseconds
@@ -315,7 +316,7 @@ void LoseState::Update()
 	if (EVMA::KeyPressed(SDL_SCANCODE_R))
 	{
 		//m_objects[2].second->SetEnabled(true);
-		collision_detected = 1;
+		//collision_detected = 1;
 		SOMA::PlaySound("pause");
 		STMA::PopState();
 		return;

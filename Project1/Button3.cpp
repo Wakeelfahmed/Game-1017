@@ -33,7 +33,7 @@ void Button3::Update()
 			if (col)
 			{
 				m_state = STATE_OVER;
-				Execute();	
+				Execute();
 			}
 			else
 			{
@@ -47,15 +47,19 @@ void Button3::Update()
 
 void Button3::Render()
 {
-	m_src.x = m_src.w * (int)m_state; 
+	m_src.x = m_src.w * (int)m_state;
 	SDL_RenderCopyF(REMA::GetRenderer(), TEMA::GetTexture(m_key), &m_src, &m_dst);
 }
 
 PlayButton::PlayButton(SDL_Rect src, SDL_FRect dst, const char* key) :Button3(src, dst, key) {}
-
 void PlayButton::Execute()
 {
 	STMA::ChangeState(new GameState());
+}
+ExitButton::ExitButton(SDL_Rect src, SDL_FRect dst, const char* key) :Button3(src, dst, key) {}
+void ExitButton::Execute()
+{
+	exit(1);
 }
 
 

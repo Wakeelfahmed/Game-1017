@@ -24,6 +24,13 @@ private:
 public:
 	PlayButton(SDL_Rect src, SDL_FRect dst, const char* key);
 };
+class ExitButton : public Button3
+{
+private:
+	void Execute();
+public:
+	ExitButton(SDL_Rect src, SDL_FRect dst, const char* key);
+};
 
 #endif
 
