@@ -36,19 +36,32 @@ void State::Update()
 			//m_state = STATE_DEATH;
 			//ObstacleRow Obstable = i;
 		// 
-
 		}
 		else
 			i.second->Update();
 		if (STMA::StateChanging()) return;
+
 	}
+	for (auto const& i : m_objects) {
+		if (i.first == "Timer") {
+			RemoveChild("Timer");
+			elapsedTime = SDL_GetTicks() - startTime;
+			std::string timeText = "Time " + std::to_string(elapsedTime / 1000);
+			AddChild("Timer", new Label("ARCADECLASSIC", 2, -10, timeText.c_str()));
+			break;
+		}
+	}
+
 }
 void State::Render()
 {
+	//AddChild("LoseText", new Label("ARCADECLASSIC", 360, 200, timeText.c_str()));
 	for (auto const& i : m_objects)
 		i.second->Render();
 	if (dynamic_cast<GameState*>(this) && dynamic_cast<PauseState*>(STMA::GetStates().back()))
 		return; // If GameState is rendering but PauseState is the current state, return.
+	//std::string timeText = "Time: " + std::to_string(elapsedTime / 1000) + " seconds";
+
 	SDL_RenderPresent(REMA::GetRenderer());
 }
 void State::Exit()
@@ -220,6 +233,10 @@ void GameState::Enter()
 	SOMA::Load("Assets/Audio/Biscuit.mp3", "Biscuit", SOUND_MUSIC);
 	SOMA::SetMusicVolume(20);
 	SOMA::PlayMusic("Biscuit", -1, 2000);
+	startTime = SDL_GetTicks(); // Get the current time in milliseconds
+	elapsedTime = SDL_GetTicks() - startTime;
+	std::string timeText = "Time: " + std::to_string(elapsedTime / 1000) + " seconds";
+	AddChild("Timer", new Label("ARCADECLASSIC", 360, 200, timeText.c_str()));
 
 }
 void GameState::Update()
@@ -279,6 +296,7 @@ void GameState::Resume()
 	m_objects[1].second->GetDst()->y = 576;
 	RemoveChild("Obstacles");
 	AddChild("Obstacles", new ObstacleRow());
+	startTime = SDL_GetTicks(); // Get the current time in milliseconds
 	SOMA::ResumeMusic();
 }
 // End GameState
