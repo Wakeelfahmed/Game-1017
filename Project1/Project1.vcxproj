@@ -18,6 +18,49 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="Button3.h" />
+    <ClInclude Include="CollisionManager.h" />
+    <ClInclude Include="DebugManager.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="EventManager.h" />
+    <ClInclude Include="FontManager.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="MathManager.h" />
+    <ClInclude Include="Obstacle.h" />
+    <ClInclude Include="ObstacleRow.h" />
+    <ClInclude Include="PlatformPlayer.h" />
+    <ClInclude Include="Primitives.h" />
+    <ClInclude Include="RenderManager.h" />
+    <ClInclude Include="ScrollingBackground.h" />
+    <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="StateManager.h" />
+    <ClInclude Include="States.h" />
+    <ClInclude Include="TextureManager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Button3.cpp" />
+    <ClCompile Include="CollisionManager.cpp" />
+    <ClCompile Include="DebugManager.cpp" />
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="EventManager.cpp" />
+    <ClCompile Include="FontManager.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MathManager.cpp" />
+    <ClCompile Include="Obstacle.cpp" />
+    <ClCompile Include="ObstacleRow.cpp" />
+    <ClCompile Include="PlatformPlayer.cpp" />
+    <ClCompile Include="Primitives.cpp" />
+    <ClCompile Include="RenderManager.cpp" />
+    <ClCompile Include="ScrollingBackground.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="StateManager.cpp" />
+    <ClCompile Include="States.cpp" />
+    <ClCompile Include="TextureManager.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -129,49 +172,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Background.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Button3.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\CollisionManager.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\DebugManager.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Engine.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\EventManager.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\FontManager.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\GameObject.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\MathManager.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Obstacle.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\ObstacleRow.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\PlatformPlayer.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Primitives.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\RenderManager.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\ScrollingBackground.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\SoundManager.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\StateManager.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\States.h" />
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\TextureManager.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Background.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Button3.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\CollisionManager.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\DebugManager.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Engine.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\EventManager.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\FontManager.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\GameObject.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Main.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\MathManager.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Obstacle.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\ObstacleRow.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\PlatformPlayer.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Primitives.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\RenderManager.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\ScrollingBackground.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\SoundManager.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\StateManager.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\States.cpp" />
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\TextureManager.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

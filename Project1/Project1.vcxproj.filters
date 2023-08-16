@@ -15,123 +15,123 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Background.h">
+    <ClInclude Include="Background.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Button3.h">
+    <ClInclude Include="Button3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\CollisionManager.h">
+    <ClInclude Include="CollisionManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\DebugManager.h">
+    <ClInclude Include="DebugManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Engine.h">
+    <ClInclude Include="Engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\EventManager.h">
+    <ClInclude Include="EventManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\FontManager.h">
+    <ClInclude Include="FontManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\GameObject.h">
+    <ClInclude Include="GameObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\MathManager.h">
+    <ClInclude Include="MathManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Obstacle.h">
+    <ClInclude Include="Obstacle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\ObstacleRow.h">
+    <ClInclude Include="ObstacleRow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\PlatformPlayer.h">
+    <ClInclude Include="PlatformPlayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Primitives.h">
+    <ClInclude Include="Primitives.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\RenderManager.h">
+    <ClInclude Include="RenderManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\ScrollingBackground.h">
+    <ClInclude Include="ScrollingBackground.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\SoundManager.h">
+    <ClInclude Include="SoundManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\StateManager.h">
+    <ClInclude Include="StateManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\States.h">
+    <ClInclude Include="States.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\TextureManager.h">
+    <ClInclude Include="TextureManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Background.cpp">
+    <ClCompile Include="Background.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Button3.cpp">
+    <ClCompile Include="Button3.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\CollisionManager.cpp">
+    <ClCompile Include="CollisionManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\DebugManager.cpp">
+    <ClCompile Include="DebugManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Engine.cpp">
+    <ClCompile Include="Engine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\EventManager.cpp">
+    <ClCompile Include="EventManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\FontManager.cpp">
+    <ClCompile Include="FontManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\GameObject.cpp">
+    <ClCompile Include="GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Main.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\MathManager.cpp">
+    <ClCompile Include="MathManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Obstacle.cpp">
+    <ClCompile Include="Obstacle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\ObstacleRow.cpp">
+    <ClCompile Include="ObstacleRow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\PlatformPlayer.cpp">
+    <ClCompile Include="PlatformPlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\Primitives.cpp">
+    <ClCompile Include="Primitives.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\RenderManager.cpp">
+    <ClCompile Include="RenderManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\ScrollingBackground.cpp">
+    <ClCompile Include="ScrollingBackground.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\SoundManager.cpp">
+    <ClCompile Include="SoundManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\StateManager.cpp">
+    <ClCompile Include="StateManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\States.cpp">
+    <ClCompile Include="States.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Assignment 2 for Fundamentals 2\GAME1017_AsciMelih\TextureManager.cpp">
+    <ClCompile Include="TextureManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
