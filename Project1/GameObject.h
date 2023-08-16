@@ -13,7 +13,7 @@ public:
 	virtual bool Update(SDL_FRect& object1) = 0;
 
 	virtual void Render() = 0;
-	const bool GetEnabled() const; 
+	const bool GetEnabled() const;
 	void SetEnabled(const bool e);
 
 protected: // private but inherited.
@@ -29,7 +29,7 @@ public:
 	SDL_Rect* GetSrc();
 	virtual void Update() = 0;
 	virtual void Render() = 0;
-	bool Update(SDL_FRect& object1){ return 0; } 
+	bool Update(SDL_FRect& object1) { return 0; }
 
 protected:
 	SDL_Rect m_src;
@@ -42,13 +42,15 @@ public:
 	virtual void Update() = 0;
 	virtual void Render() = 0;
 
-protected: 
+protected:
 	unsigned short m_frame, m_frameMax, m_sprite, m_spriteMin, m_spriteMax;
 	AnimState m_state;
 	AnimatedSprite(const SDL_Rect src, const SDL_FRect dst, AnimState state);
 	void SetAnimation(AnimState state, const unsigned short frameMax, const unsigned short spriteMin,
 		const unsigned short spriteMax, const int srcY = 0);
 	void Animate();
+	AnimState get_Player_State() const { return m_state; }
+	AnimState Set_Player_State(AnimState New_State) { m_state = New_State; }
 };
 
 #endif

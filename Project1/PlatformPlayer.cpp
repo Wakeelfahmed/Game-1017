@@ -15,6 +15,7 @@ m_maxVelY(kJumpForce), m_grav(kGrav), m_drag(0.8)
 {
 	m_accelX = m_accelY = m_velX = m_velY = 0.0;
 	SetAnimation(m_state, 10, 0, 8, m_src.h * 2); // Initialize IDLE animation.
+	m_enabled = true;
 }
 
 void PlatformPlayer::Update()
@@ -40,7 +41,7 @@ void PlatformPlayer::Update()
 		else if (EVMA::KeyPressed(SDL_SCANCODE_C))
 		{
 			m_crouching = true; // Start crouching
-			SetAnimation(STATE_CROUCHING, 8, 0, 3, m_src.h * 15); // Set crouching animation
+			SetAnimation(STATE_CROUCHING, 8, 0, 3, m_src.h * 25); // Set crouching animation
 		}
 
 		break;
@@ -117,6 +118,7 @@ void PlatformPlayer::Update()
 		}
 		break;
 	}
+
 	// Player movement. X axis first.
 	m_velX += m_accelX; // Add acceleration to velocity.
 	m_velX *= (m_grounded ? m_drag : 1.0); // Cheeky deceleration.
@@ -136,9 +138,9 @@ void PlatformPlayer::Update()
 		m_velY = 0.0;
 		SetGrounded(true); // Assuming player is grounded when on the platform
 	}
-		m_velY += m_accelY + m_grav;
-		m_velY = std::min(std::max(m_velY, -m_maxVelY), m_maxVelY); // (m_grav * 5.0)
-		m_dst.y += (float)m_velY;
+	m_velY += m_accelY + m_grav;
+	m_velY = std::min(std::max(m_velY, -m_maxVelY), m_maxVelY); // (m_grav * 5.0)
+	m_dst.y += (float)m_velY;
 	//}
 	m_accelX = m_accelY = 0.0; // Resetting accel every frame.
 	// Invoke the animation.

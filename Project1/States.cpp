@@ -17,16 +17,25 @@
 
 #include <iostream>
 using namespace std;
-
 void State::Update()
 {
 	for (auto const& i : m_objects)
 	{
 		if (i.first == "Obstacles") {
-		
-				i.second->Update(*(m_objects[2].second->GetDst()));
-				//ObstacleRow Obstable = i;
-			//cout << "Death";
+
+			if (i.second->Update(*(m_objects[1].second->GetDst()))) {
+				m_objects[1].second->SetEnabled(false);		//Set Player to false
+				cout << "Death";
+				//m_objects[1].second->GetDst()->x = 128;
+				//m_objects[1].second->GetDst()->y = 576;
+				//RemoveChild("Obstacles");
+				//AddChild("Obstacles", new ObstacleRow());
+				//m_objects[1].second.
+
+			}
+			//m_state = STATE_DEATH;
+			//ObstacleRow Obstable = i;
+		// 
 
 		}
 		else
@@ -34,7 +43,6 @@ void State::Update()
 		if (STMA::StateChanging()) return;
 	}
 }
-
 void State::Render()
 {
 	for (auto const& i : m_objects)
@@ -43,7 +51,6 @@ void State::Render()
 		return; // If GameState is rendering but PauseState is the current state, return.
 	SDL_RenderPresent(REMA::GetRenderer());
 }
-
 void State::Exit()
 {
 	for (auto& i : m_objects)
@@ -54,7 +61,6 @@ void State::Exit()
 	m_objects.clear();
 	m_objects.shrink_to_fit();
 }
-
 void State::AddChild(std::string key, GameObject* object)
 {
 	m_objects.push_back(pair<string, GameObject*>(key, object));
@@ -105,7 +111,6 @@ void State::RemoveChild(const std::string& key)
 
 // Begin TitleState.
 TitleState::TitleState() = default;
-
 void TitleState::Enter()
 {
 	cout << "Entering TitleState..." << endl;
@@ -131,7 +136,6 @@ void TitleState::Enter()
 	SOMA::SetMusicVolume(42);
 	SOMA::PlayMusic("menumusic", -1, 2000);
 }
-
 void TitleState::Update()
 {
 	if (EVMA::KeyPressed(SDL_SCANCODE_N))
@@ -141,14 +145,12 @@ void TitleState::Update()
 	}
 	State::Update();
 }
-
 void TitleState::Render()
 {
 	SDL_SetRenderDrawColor(REMA::GetRenderer(), 255, 0, 0, 255);
 	SDL_RenderClear(REMA::GetRenderer());
 	State::Render();
 }
-
 void TitleState::Exit()
 {
 	cout << "Exiting TitleState..." << endl;
@@ -162,15 +164,12 @@ void TitleState::Exit()
 
 // Begin PauseState.
 PauseState::PauseState() = default;
-
 void PauseState::Enter()
 {
 	cout << "Entering PauseState..." << endl;
 	AddChild("pauseText", new Label("ARCADECLASSIC", 410, 200, "Paused"));
 	AddChild("pauseText", new Label("ARCADECLASSIC", 255, 390, "Press R to Resume"));
-
 }
-
 void PauseState::Update()
 {
 	if (EVMA::KeyPressed(SDL_SCANCODE_R))
@@ -181,7 +180,6 @@ void PauseState::Update()
 	}
 	State::Update();
 }
-
 void PauseState::Render()
 {
 	// First render the GameState
@@ -192,7 +190,6 @@ void PauseState::Render()
 	SDL_RenderFillRect(REMA::GetRenderer(), &rect);
 	State::Render();
 }
-
 void PauseState::Exit()
 {
 	cout << "Exiting PauseState..." << endl;
@@ -202,7 +199,6 @@ void PauseState::Exit()
 
 // Begin GameState.
 GameState::GameState() = default;
-
 void GameState::Enter()
 {
 	cout << "Entering GameState..." << endl;
@@ -214,7 +210,9 @@ void GameState::Enter()
 	TEMA::Load("Assets/image/player.png", "player");
 
 	AddChild("background", new ScrollingBackground("citylights"));
+	AddChild("player", new PlatformPlayer({ 0,0,32,32 }, { 128,576,64,64 }));
 	AddChild("Obstacles", new ObstacleRow());
+	m_objects[1].second->SetEnabled(true);
 	SOMA::SetSoundVolume(32);
 	SOMA::SetMusicVolume(16);
 
@@ -223,12 +221,21 @@ void GameState::Enter()
 	SOMA::SetMusicVolume(20);
 	SOMA::PlayMusic("Biscuit", -1, 2000);
 
-	AddChild("player", new PlatformPlayer({ 0,0,32,32 }, { 128,576,64,64 }));
 }
-
 void GameState::Update()
 {
-	if (EVMA::KeyPressed(SDL_SCANCODE_X))
+	if (collision_detected == 1 && m_objects[1].second->GetEnabled() == false) {
+		m_objects[1].second->SetEnabled(true);
+		collision_detected = 0;
+		//m_objects[2].second.
+	}
+
+	if (m_objects[1].second->GetEnabled() == false)
+	{
+		STMA::PushState(new LoseState()); // Change to new LoseState
+		collision_detected = 1;
+	}
+	else if (EVMA::KeyPressed(SDL_SCANCODE_X))
 	{
 		STMA::ChangeState(new TitleState()); // Change to new TitleState
 		return;
@@ -244,14 +251,12 @@ void GameState::Update()
 	State::Update();
 
 }
-
 void GameState::Render()
 {
 	SDL_SetRenderDrawColor(REMA::GetRenderer(), 0, 0, 0, 255);
 	SDL_RenderClear(REMA::GetRenderer());
 	State::Render();
 }
-
 void GameState::Exit()
 {
 	cout << "Exiting GameState..." << endl;
@@ -267,10 +272,48 @@ void GameState::Exit()
 	FOMA::Quit();
 	State::Exit();
 }
-
 void GameState::Resume()
 {
 	cout << "Resuming GameState..." << endl;
+	m_objects[1].second->GetDst()->x = 128;
+	m_objects[1].second->GetDst()->y = 576;
+	RemoveChild("Obstacles");
+	AddChild("Obstacles", new ObstacleRow());
 	SOMA::ResumeMusic();
 }
 // End GameState
+
+LoseState::LoseState() = default;
+void LoseState::Enter()
+{
+	cout << "Entering LoseState..." << endl;
+	AddChild("LoseText", new Label("ARCADECLASSIC", 360, 200, "Game Over!"));
+	AddChild("LoseText", new Label("ARCADECLASSIC", 255, 390, "Press R to Restart"));
+}
+void LoseState::Update()
+{
+	if (EVMA::KeyPressed(SDL_SCANCODE_R))
+	{
+		//m_objects[2].second->SetEnabled(true);
+		collision_detected = 1;
+		SOMA::PlaySound("pause");
+		STMA::PopState();
+		return;
+	}
+	State::Update();
+}
+void LoseState::Render()
+{
+	// First render the GameState
+	STMA::GetStates().front()->Render();
+	// Now render rest of LoseState
+	SDL_SetRenderDrawColor(REMA::GetRenderer(), 0, 0, 255, 128);
+	SDL_Rect rect = { 256, 128, 512, 512 };
+	SDL_RenderFillRect(REMA::GetRenderer(), &rect);
+	State::Render();
+}
+void LoseState::Exit()
+{
+	cout << "Exiting LoseState..." << endl;
+	State::Exit();
+}

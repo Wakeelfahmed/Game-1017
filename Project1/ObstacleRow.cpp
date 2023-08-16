@@ -30,8 +30,10 @@ bool ObstacleRow::Update(SDL_FRect& Player)
 			Player.y < obstacle->GetPos().y + 64 &&
 			Player.y + Player.h > obstacle->GetPos().y)
 		{
-			//return 1;
+
 			std::cout << "Death!\n";
+			return 1;
+			
 			// Collision detected between player and obstacle
 			// Handle collision logic here
 		}
