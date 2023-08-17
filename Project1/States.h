@@ -24,6 +24,7 @@ public:
 protected: // Private but inherited.
 	std::vector<std::pair<std::string, GameObject*>> m_objects;
 	Uint32 startTime, elapsedTime;
+	bool dead;	Uint32 DeathstartTime, DeathelapsedTime;
 	State() = default;
 	//bool collision_detected = false;
 };

@@ -24,6 +24,9 @@ public: // Methods.
 	double GetVelY();
 	void SetX(float x);
 	void SetY(float y);
+	void Set_Animation_State(AnimState NewState) {
+		Set_Player_State(NewState);
+	}
 private: // Properties.
 	bool m_grounded, m_facingLeft, m_crouching;
 	double m_accelX,

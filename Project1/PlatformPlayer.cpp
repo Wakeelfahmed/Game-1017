@@ -20,6 +20,7 @@ m_maxVelY(kJumpForce), m_grav(kGrav), m_drag(0.8)
 
 void PlatformPlayer::Update()
 {
+	static int i = 0;
 	// Checking states.
 	switch (m_state)
 	{
@@ -27,7 +28,7 @@ void PlatformPlayer::Update()
 		// Transition to run.
 		if (EVMA::KeyPressed(SDL_SCANCODE_A) || EVMA::KeyPressed(SDL_SCANCODE_D))
 		{
-			SetAnimation(STATE_RUNNING, 8, 0, 8, m_src.h * 6);
+			SetAnimation(STATE_RUNNING, 8, 0, 8, m_src.h * 6);//6
 		}
 		// Transition to jump.
 		else if (EVMA::KeyPressed(SDL_SCANCODE_SPACE) && m_grounded)
@@ -35,7 +36,8 @@ void PlatformPlayer::Update()
 			m_accelY = -kJumpForce; // SetAccelY(-JUMPFORCE);
 			m_grounded = false; // SetGrounded(false);
 			SOMA::PlaySound("jump");
-			SetAnimation(STATE_JUMPING, 10, 0, 3, m_src.h * 18);
+			SetAnimation(STATE_JUMPING, 15, 0, 5, m_src.h * 18);//18
+			cout << i << endl;
 		}
 
 		else if (EVMA::KeyPressed(SDL_SCANCODE_C))
@@ -118,21 +120,22 @@ void PlatformPlayer::Update()
 		}
 		break;
 	}
+	if (!m_enabled) {
+		SetAnimation(STATE_DEATH, 10, 0, 8, m_src.h * 27); //full death
+		m_enabled = 1;
+		Animate();
+		m_state = STATE_IDLING;
+		//SetAnimation(STATE_IDLING, 10, 0, 8, m_src.h * 2); // Initialize IDLE animation.
+	}
+	m_enabled = 1;
+
 
 	// Player movement. X axis first.
 	m_velX += m_accelX; // Add acceleration to velocity.
 	m_velX *= (m_grounded ? m_drag : 1.0); // Cheeky deceleration.
 	m_velX = std::min(std::max(m_velX, -m_maxVelX), m_maxVelX);
 	m_dst.x += (float)m_velX; // May have to cast to (int)
-	//if (m_velY > 10)
-		//m_grounded = 1;
 
-	/*if (m_velY > 10 && !m_grounded) {
-		cout << "Below Platform\n";
-		m_grounded = 1;
-	}*/// Y axis now.
-	//if (m_accelY <= 0 || !m_grounded) {
-		//m_grounded = 0;
 	if (m_dst.y > 615) {
 		m_dst.y = 615;
 		m_velY = 0.0;
@@ -141,10 +144,11 @@ void PlatformPlayer::Update()
 	m_velY += m_accelY + m_grav;
 	m_velY = std::min(std::max(m_velY, -m_maxVelY), m_maxVelY); // (m_grav * 5.0)
 	m_dst.y += (float)m_velY;
-	//}
 	m_accelX = m_accelY = 0.0; // Resetting accel every frame.
 	// Invoke the animation.
 	Animate();
+
+	//i++;
 }
 
 void PlatformPlayer::Render()

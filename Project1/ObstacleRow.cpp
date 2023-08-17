@@ -25,17 +25,19 @@ bool ObstacleRow::Update(SDL_FRect& Player)
 	for (const auto obstacle : m_obstacles)
 	{
 		//Player_Temp
-		if (Player.x < obstacle->GetPos().x + 64 &&
-			Player.x + Player.w > obstacle->GetPos().x &&
-			Player.y < obstacle->GetPos().y + 64 &&
-			Player.y + Player.h > obstacle->GetPos().y)
-		{
+		if (obstacle->Has_Image()) {
+			if (Player.x < obstacle->GetPos().x + 64 &&
+				Player.x + Player.w > obstacle->GetPos().x &&
+				Player.y < obstacle->GetPos().y + 64 &&
+				Player.y + Player.h > obstacle->GetPos().y)
+			{
 
-			std::cout << "Death!\n";
-			return 1;
-			
-			// Collision detected between player and obstacle
-			// Handle collision logic here
+				std::cout << "Death!\n";
+				return 1;
+
+				// Collision detected between player and obstacle
+				// Handle collision logic here
+			}
 		}
 	}
 	// Check if first obstacle goes off-screen
@@ -65,13 +67,12 @@ bool ObstacleRow::Update(SDL_FRect& Player)
 		else
 			m_obstacles.push_back(new Obstacle({ 1024.0f, 384.0f, 128.0f, 128.0f }));
 	}
-	// Scroll the obstacles
-	//if(Player.)
+
 	for (const auto obstacle : m_obstacles)
 		obstacle->Update();
 	return 0;
 }
-void ObstacleRow::Update()
+void ObstacleRow::Update() //not used
 {
 	srand(time(NULL));
 	// Check if first obstacle goes off-screen

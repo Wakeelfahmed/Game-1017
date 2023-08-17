@@ -27,15 +27,7 @@ void State::Update()
 
 				m_objects[1].second->SetEnabled(false);		//Set Player to false
 				cout << "Death";
-				//m_objects[1].second->GetDst()->x = 128;
-				//m_objects[1].second->GetDst()->y = 576;
-				//RemoveChild("Obstacles");
-				//AddChild("Obstacles", new ObstacleRow());
-				//m_objects[1].second.
-
 			}
-
-			// 
 		}
 		else
 			i.second->Update();
@@ -46,7 +38,6 @@ void State::Update()
 			RemoveChild("Timer");
 			elapsedTime = SDL_GetTicks() - startTime;
 			std::string timeText = "Time " + std::to_string(elapsedTime / 1000);
-			//i.second.
 			AddChild("Timer", new Label("ARCADECLASSIC", 2, -10, timeText.c_str()));
 			break;
 		}
@@ -59,9 +50,7 @@ void State::Render()
 	for (auto const& i : m_objects)
 		i.second->Render();
 	if (dynamic_cast<GameState*>(this) && dynamic_cast<PauseState*>(STMA::GetStates().back()))
-		return; // If GameState is rendering but PauseState is the current state, return.
-	//std::string timeText = "Time: " + std::to_string(elapsedTime / 1000) + " seconds";
-
+		return;
 	SDL_RenderPresent(REMA::GetRenderer());
 }
 void State::Exit()
@@ -294,8 +283,10 @@ void GameState::Exit()
 void GameState::Resume()
 {
 	cout << "Resuming GameState..." << endl;
-	m_objects[1].second->GetDst()->x = 128;
-	m_objects[1].second->GetDst()->y = 576;
+	RemoveChild("player");
+	AddChild("player", new PlatformPlayer({ 0,0,32,32 }, { 128,576,64,64 }));
+	//m_objects[1].second->GetDst()->x = 128;
+	//m_objects[1].second->GetDst()->y = 576;
 	m_objects[1].second->SetEnabled(true);
 	RemoveChild("Obstacles");
 	AddChild("Obstacles", new ObstacleRow());
@@ -315,8 +306,6 @@ void LoseState::Update()
 {
 	if (EVMA::KeyPressed(SDL_SCANCODE_R))
 	{
-		//m_objects[2].second->SetEnabled(true);
-		//collision_detected = 1;
 		SOMA::PlaySound("pause");
 		STMA::PopState();
 		return;

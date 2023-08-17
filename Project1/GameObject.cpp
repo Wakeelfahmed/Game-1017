@@ -3,16 +3,16 @@
 GameObject::GameObject() :m_dst({ 0.0f, 0.0f, 0.0f, 0.0f }), m_enabled(true) {}
 
 GameObject::GameObject(const SDL_FRect dst)
-    :m_dst(dst), m_enabled(true) {}
+	:m_dst(dst), m_enabled(true) {}
 
 SDL_FRect* GameObject::GetDst()
 {
-    return &m_dst;
+	return &m_dst;
 }
 
 SDL_FPoint GameObject::GetCenter() const
 {
-    return { m_dst.x + m_dst.w / 2, m_dst.y + m_dst.h / 2 };
+	return { m_dst.x + m_dst.w / 2, m_dst.y + m_dst.h / 2 };
 }
 
 const bool GameObject::GetEnabled() const
@@ -25,12 +25,11 @@ void GameObject::SetEnabled(const bool e)
 	m_enabled = e;
 }
 
-Sprite::Sprite(const SDL_Rect src, const SDL_FRect dst)
-    :GameObject(dst), m_src(src) {}
+Sprite::Sprite(const SDL_Rect src, const SDL_FRect dst) :GameObject(dst), m_src(src) {}
 
 SDL_Rect* Sprite::GetSrc()
 {
-    return &m_src;
+	return &m_src;
 }
 
 AnimatedSprite::AnimatedSprite(const SDL_Rect src, const SDL_FRect dst, AnimState state)

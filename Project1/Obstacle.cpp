@@ -31,7 +31,6 @@ void Obstacle::Update()
 		m_pImage->GetDst()->x -= kScrollSpeed;
 	}
 }
-
 void Obstacle::Render()
 {
 	//SDL_Rect m_dst = { m_pos.x, m_pos.y, 128, 128 }; // Temporary. Not needed for A@

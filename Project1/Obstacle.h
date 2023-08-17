@@ -14,6 +14,7 @@ public:
 	void Render();
 	const SDL_FPoint GetPos() { return m_pos; }
 	const SDL_FPoint SetPos(SDL_FPoint new_pos) {  m_pos = new_pos; }
+	bool Has_Image() { return m_hasImage; }
 private:
 	bool m_hasImage;
 	Image* m_pImage; // Pointer to visual component.
