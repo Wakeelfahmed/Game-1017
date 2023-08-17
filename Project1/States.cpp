@@ -233,15 +233,15 @@ void GameState::Enter()
 void GameState::Update()
 {
 	//if (collision_detected == 1 && m_objects[1].second->GetEnabled() == false) {
-	//	m_objects[1].second->SetEnabled(true);
-	//	collision_detected = 0;
-	//	//m_objects[2].second.
+		//m_objects[1].second->SetEnabled(true);
+		//collision_detected = 0;
+		//m_objects[2].second.
 	//}
 
 	if (m_objects[1].second->GetEnabled() == false)
 	{
 		STMA::PushState(new LoseState()); // Change to new LoseState
-		//collision_detected = 1;
+		collision_detected = 1;
 	}
 	else if (EVMA::KeyPressed(SDL_SCANCODE_X))
 	{
@@ -283,13 +283,16 @@ void GameState::Exit()
 void GameState::Resume()
 {
 	cout << "Resuming GameState..." << endl;
-	RemoveChild("player");
-	AddChild("player", new PlatformPlayer({ 0,0,32,32 }, { 128,576,64,64 }));
-	//m_objects[1].second->GetDst()->x = 128;
-	//m_objects[1].second->GetDst()->y = 576;
-	m_objects[1].second->SetEnabled(true);
-	RemoveChild("Obstacles");
-	AddChild("Obstacles", new ObstacleRow());
+	if (collision_detected) {
+		//m_objects[1].second->GetDst()->x = 128;
+		//m_objects[1].second->GetDst()->y = 576;
+		RemoveChild("player");
+		AddChild("player", new PlatformPlayer({ 0,0,32,32 }, { 128,576,64,64 }));
+		m_objects[1].second->SetEnabled(true);
+		RemoveChild("Obstacles");
+		collision_detected = 0;
+		AddChild("Obstacles", new ObstacleRow());
+	}
 	startTime = SDL_GetTicks(); // Get the current time in milliseconds
 	SOMA::ResumeMusic();
 }

@@ -26,7 +26,7 @@ protected: // Private but inherited.
 	Uint32 startTime, elapsedTime;
 	bool dead;	Uint32 DeathstartTime, DeathelapsedTime;
 	State() = default;
-	//bool collision_detected = false;
+	bool collision_detected = false;
 };
 
 class TitleState : public State
